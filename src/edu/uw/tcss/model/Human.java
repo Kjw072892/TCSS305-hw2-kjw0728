@@ -8,7 +8,7 @@ import java.util.Map;
  * @author Kassie Whitney
  * @version 1.29.25
  */
-public final class Human extends AbstractVehicle {
+public class Human extends AbstractVehicle {
 
      /**
      * Stores the previously called direction.

@@ -8,7 +8,8 @@ import java.util.Map;
  * @author Kassie Whitney
  * @version 1.29.25
  */
-public final class Car extends AbstractVehicle {
+public class Car extends AbstractVehicle {
+
 
     /**
      * The death time for the Car.
@@ -87,8 +88,4 @@ public final class Car extends AbstractVehicle {
     public int getDeathTime() {
         return CAR_DEATH_TIME;
     }
-
-
-
-
 }

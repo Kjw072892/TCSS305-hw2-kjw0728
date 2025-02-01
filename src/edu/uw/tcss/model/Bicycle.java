@@ -8,7 +8,9 @@ import java.util.Map;
  * @author Kassie Whitney
  * @version 1.31.25
  */
-public final class Bicycle extends AbstractVehicle {
+
+public class Bicycle extends AbstractVehicle {
+
 
     /**
      * The death time for the Bicycle.
