@@ -12,7 +12,8 @@ import java.util.Map;
 public class Taxi extends AbstractVehicle {
 
 
-     * Stores the previously called direction.
+    /**
+     * Stores previously called directions.
      */
     private Direction myPreviousDirection;
 
