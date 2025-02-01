@@ -10,6 +10,12 @@ import java.util.Map;
  */
 public final class Human extends AbstractVehicle {
 
+     /**
+     * Stores the previously called direction.
+     */
+    private Direction myPreviousDirection;
+
+
     /**
      *
      * Constructor for Human class.
@@ -19,11 +25,10 @@ public final class Human extends AbstractVehicle {
      * @param theDir the starting direction coordinate
      */
     public Human(final int theX, final int theY, final Direction theDir) {
-        super();
+        super(theX, theY, theDir);
 
-        this.setX(theX);
-        this.setY(theY);
-        this.setDirection(theDir);
+        myPreviousDirection = theDir;
+
     }
 
     @Override
@@ -37,7 +42,9 @@ public final class Human extends AbstractVehicle {
     }
 
     @Override
-    public void collide(final Vehicle theOther) {
-
+    public int getDeathTime() {
+        return 0;
     }
+
+
 }
