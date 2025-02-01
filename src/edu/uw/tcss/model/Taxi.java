@@ -8,7 +8,7 @@ import java.util.Map;
  * @author Kassie Whitney
  * @version 1.29.25
  */
-public final class Taxi extends AbstractVehicle {
+public class Taxi extends AbstractVehicle {
      /**
      * Stores the previously called direction.
      */

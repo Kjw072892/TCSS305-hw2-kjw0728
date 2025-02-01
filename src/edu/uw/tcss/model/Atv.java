@@ -10,7 +10,7 @@ import java.util.Random;
  * @author Kassie Whitney
  * @version 1.29.25
  */
-public final class Atv extends AbstractVehicle {
+public class Atv extends AbstractVehicle {
 
     /**
      * The death time for the ATV.

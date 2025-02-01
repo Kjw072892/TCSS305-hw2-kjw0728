@@ -11,7 +11,7 @@ import java.util.Random;
  * @author Kassie Whitney
  * @version 1.31.25
  */
-public final class Truck extends AbstractVehicle {
+public class Truck extends AbstractVehicle {
 
     /**
      * Stores the previously called direction.
