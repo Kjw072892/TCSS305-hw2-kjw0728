@@ -123,7 +123,7 @@ public abstract class AbstractVehicle implements Vehicle {
 
     @Override
     public String toString() {
-        return String.format("[Vehicle: %s, Location: (%d, %d)]",
+        return String.format("[Vehicle: %s, \nLocation: (%d, %d)]",
                 this.getClass().getSimpleName().toUpperCase(Locale.ROOT), getX(), getY());
     }
 
