@@ -17,12 +17,6 @@ public class Bicycle extends AbstractVehicle {
      */
     private static final int BICYCLE_DEATH_TIME = 35;
 
-    /**
-     * Stores the previously called direction.
-     */
-    private Direction myPreviousDirection;
-
-
 
     /**
      *

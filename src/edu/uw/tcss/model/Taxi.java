@@ -13,11 +13,6 @@ public class Taxi extends AbstractVehicle {
 
 
     /**
-     * Stores previously called directions.
-     */
-    private Direction myPreviousDirection;
-
-    /**
      * Constructor for Taxi.
      *
      * @param theX the starting x coordinate
@@ -26,8 +21,6 @@ public class Taxi extends AbstractVehicle {
      */
     public Taxi(final int theX, final int theY, final Direction theDir) {
         super(theX, theY, theDir);
-
-        myPreviousDirection = theDir;
 
     }
 
