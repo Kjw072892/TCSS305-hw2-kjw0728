@@ -8,13 +8,13 @@ import java.util.Map;
  * @author Kassie Whitney
  * @version 1.29.25
  */
+
 public class Taxi extends AbstractVehicle {
-     /**
+
+
      * Stores the previously called direction.
      */
     private Direction myPreviousDirection;
-
-
 
     /**
      * Constructor for Taxi.

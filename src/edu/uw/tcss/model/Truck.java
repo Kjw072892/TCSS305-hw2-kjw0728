@@ -13,12 +13,11 @@ import java.util.Random;
  */
 public class Truck extends AbstractVehicle {
 
+
     /**
      * Stores the previously called direction.
      */
     private Direction myPreviousDirection;
-
-
 
     /**
      *

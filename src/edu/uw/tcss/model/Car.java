@@ -10,6 +10,7 @@ import java.util.Map;
  */
 public class Car extends AbstractVehicle {
 
+
     /**
      * The death time for the Car.
      */
@@ -87,8 +88,4 @@ public class Car extends AbstractVehicle {
     public int getDeathTime() {
         return CAR_DEATH_TIME;
     }
-
-
-
-
 }

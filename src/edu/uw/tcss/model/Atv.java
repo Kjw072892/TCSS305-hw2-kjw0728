@@ -10,6 +10,7 @@ import java.util.Random;
  * @author Kassie Whitney
  * @version 1.29.25
  */
+
 public class Atv extends AbstractVehicle {
 
     /**
@@ -89,8 +90,5 @@ public class Atv extends AbstractVehicle {
 
         return random.nextInt(theUpperBound);
     }
-
-
-
 
 }
