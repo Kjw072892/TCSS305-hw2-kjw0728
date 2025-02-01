@@ -20,22 +20,6 @@ public final class Bicycle extends AbstractVehicle {
      */
     private Direction myPreviousDirection;
 
-    /**
-     * Stores the starting x value of the Bicycle at program start up.
-     */
-    private final int myDefaultX;
-
-    /**
-     * Stores the starting y value of the Bicycle at program start up.
-     */
-    private final int myDefaultY;
-
-    /**
-     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST)
-     * of the Bicycle at program start up
-     */
-    private final Direction myDefaultDirection;
-
 
 
     /**
@@ -48,10 +32,6 @@ public final class Bicycle extends AbstractVehicle {
      */
     public Bicycle(final int theX, final int theY, final Direction theDir) {
         super(theX, theY, theDir);
-        myDefaultX = theX;
-        myDefaultY = theY;
-        myDefaultDirection = theDir;
-        myPreviousDirection = theDir;
 
     }
 
@@ -87,7 +67,7 @@ public final class Bicycle extends AbstractVehicle {
         final Terrain grass = Terrain.GRASS;
         final Terrain wall = Terrain.WALL;
 
-        Direction currentDirection = myPreviousDirection;
+        Direction currentDirection = getDirection();
 
         //Tells the bicycle to go into the trail
         if (theNeighbors.get(currentDirection) != trail
@@ -106,7 +86,9 @@ public final class Bicycle extends AbstractVehicle {
             currentDirection.reverse();
         }
 
-        myPreviousDirection = currentDirection;
+        if (!isAlive()) {
+            currentDirection = Direction.random();
+        }
 
         return currentDirection;
     }
@@ -119,10 +101,4 @@ public final class Bicycle extends AbstractVehicle {
 
 
 
-    @Override
-    public void reset() {
-        setX(myDefaultX);
-        setY(myDefaultY);
-        setDirection(myDefaultDirection);
-    }
 }

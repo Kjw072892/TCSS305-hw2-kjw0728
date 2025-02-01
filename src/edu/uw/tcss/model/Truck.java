@@ -18,21 +18,7 @@ public final class Truck extends AbstractVehicle {
      */
     private Direction myPreviousDirection;
 
-    /**
-     * Stores the starting x value of the Truck at program start up.
-     */
-    private final int myDefaultX;
 
-    /**
-     * Stores the starting y value of the Truck at program start up.
-     */
-    private final int myDefaultY;
-
-    /**
-     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST)
-     * of the Truck at program start up.
-     */
-    private final Direction myDefaultDirection;
 
     /**
      *
@@ -45,9 +31,6 @@ public final class Truck extends AbstractVehicle {
     public Truck(final int theX, final int theY, final Direction theDir) {
         super(theX, theY, theDir);
 
-        myDefaultX = theX;
-        myDefaultY = theY;
-        myDefaultDirection = theDir;
         myPreviousDirection = theDir;
 
     }
@@ -118,13 +101,6 @@ public final class Truck extends AbstractVehicle {
         return 0;
     }
 
-    @Override
-    public void reset() {
-
-        setX(myDefaultX);
-        setY(myDefaultY);
-        setDirection(myDefaultDirection);
-    }
 
     /**
      *

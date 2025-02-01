@@ -1,6 +1,7 @@
 package edu.uw.tcss.model;
 
 import java.util.Locale;
+import java.util.Objects;
 
 
 /**
@@ -11,6 +12,21 @@ import java.util.Locale;
  */
 
 public abstract class AbstractVehicle implements Vehicle {
+
+    /**
+     * Stores the starting x value of the Car at program start up.
+     */
+    private final int myDefaultX;
+
+    /**
+     * Stores the starting y value of the Car at program start up.
+     */
+    private final int myDefaultY;
+
+    /**
+     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST) of the Car at program start up
+     */
+    private final Direction myDefaultDirection;
 
     /**
      * Stores the vehicle X value.
@@ -38,13 +54,16 @@ public abstract class AbstractVehicle implements Vehicle {
     private int myPokes;
 
 
-
     protected AbstractVehicle(final int theX, final int theY, final Direction theDir) {
         super();
         myX = theX;
+        myDefaultX = theX;
         myY = theY;
+        myDefaultY = theY;
         myDirection = theDir;
+        myDefaultDirection = theDir;
         myIsAlive = true;
+
     }
 
     @Override
@@ -71,6 +90,7 @@ public abstract class AbstractVehicle implements Vehicle {
         ++myPokes;
         if (myPokes >= getDeathTime()) {
             myIsAlive = true;
+
         }
     }
 
@@ -87,11 +107,13 @@ public abstract class AbstractVehicle implements Vehicle {
                 && isAlive()) {
             myPokes = 0;
             myIsAlive = false;
+            myDirection = Direction.random();
         }
     }
 
     @Override
     public final Direction getDirection() {
+
         return myDirection;
     }
 
@@ -104,7 +126,6 @@ public abstract class AbstractVehicle implements Vehicle {
     public final int getY() {
         return myY;
     }
-
 
     @Override
     public void setDirection(final Direction theDir) {
@@ -119,6 +140,16 @@ public abstract class AbstractVehicle implements Vehicle {
     @Override
     public void setY(final int theY) {
         myY = theY;
+    }
+
+    @Override
+    public void reset() {
+
+        setX(myDefaultX);
+        setY(myDefaultY);
+        setDirection(myDefaultDirection);
+        myIsAlive = true;
+
     }
 
     @Override

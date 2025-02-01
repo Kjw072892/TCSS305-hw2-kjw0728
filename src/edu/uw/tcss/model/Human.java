@@ -15,26 +15,6 @@ public final class Human extends AbstractVehicle {
      */
     private Direction myPreviousDirection;
 
-    /**
-     * Stores the starting x value of the Human at program start up.
-     */
-    private final int myDefaultX;
-
-    /**
-     * Stores the starting y value of the Human at program start up.
-     */
-    private final int myDefaultY;
-
-    /**
-     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST) of the Human at program
-     * start up
-     */
-    private final Direction myDefaultDirection;
-
-    /**
-     * Stores the vehicles alive value. True if alive, false if not alive.
-     */
-    private boolean myIsAlive;
 
     /**
      *
@@ -47,9 +27,6 @@ public final class Human extends AbstractVehicle {
     public Human(final int theX, final int theY, final Direction theDir) {
         super(theX, theY, theDir);
 
-        myDefaultX = theX;
-        myDefaultY = theY;
-        myDefaultDirection = theDir;
         myPreviousDirection = theDir;
 
     }
@@ -70,8 +47,4 @@ public final class Human extends AbstractVehicle {
     }
 
 
-    @Override
-    public void reset() {
-
-    }
 }

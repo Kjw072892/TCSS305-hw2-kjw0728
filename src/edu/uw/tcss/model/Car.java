@@ -15,26 +15,6 @@ public final class Car extends AbstractVehicle {
      */
     private static final int CAR_DEATH_TIME = 15;
 
-    /**
-     * Stores the previously called direction.
-     */
-    private Direction myPreviousDirection;
-
-    /**
-     * Stores the starting x value of the Car at program start up.
-     */
-    private final int myDefaultX;
-
-    /**
-     * Stores the starting y value of the Car at program start up.
-     */
-    private final int myDefaultY;
-
-    /**
-     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST) of the Car at program start up
-     */
-    private final Direction myDefaultDirection;
-
 
     /**
      *
@@ -46,29 +26,69 @@ public final class Car extends AbstractVehicle {
      */
     public Car(final int theX, final int theY, final Direction theDir) {
         super(theX, theY, theDir);
-        myDefaultX = theX;
-        myDefaultY = theY;
-        myDefaultDirection = theDir;
-        myPreviousDirection = theDir;
     }
 
     @Override
     public boolean canPass(final Terrain theTerrain, final Light theLight) {
-        return false;
+
+        final boolean canMove;
+
+        if (theTerrain == Terrain.STREET) {
+            canMove = true;
+        } else if (theTerrain == Terrain.CROSSWALK
+                && theLight == Light.YELLOW || theLight == Light.RED) {
+            canMove = false;
+        } else if (theTerrain == Terrain.CROSSWALK && theLight == Light.GREEN) {
+            canMove = true;
+        } else {
+            canMove = theTerrain == Terrain.LIGHT
+                    && theLight == Light.GREEN || theLight == Light.YELLOW;
+        }
+        return canMove;
     }
 
     @Override
     public Direction chooseDirection(final Map<Direction, Terrain> theNeighbors) {
-        return null;
+        final Terrain street = Terrain.STREET;
+        final Terrain crosswalk = Terrain.CROSSWALK;
+        final Terrain wall = Terrain.WALL;
+        final Terrain grass = Terrain.GRASS;
+        final Terrain trail = Terrain.TRAIL;
+        final Terrain light = Terrain.LIGHT;
+
+        Direction currentDirection = getDirection();
+
+        if (theNeighbors.get(getDirection()) != street) {
+
+            if (theNeighbors.get(currentDirection.left()) == street
+                     || theNeighbors.get(currentDirection.left()) == light
+                     || theNeighbors.get(currentDirection.left()) == crosswalk) {
+                currentDirection = currentDirection.left();
+            }
+
+            if (theNeighbors.get(currentDirection.right()) == street
+                     || theNeighbors.get(currentDirection.right()) == light
+                     || theNeighbors.get(currentDirection.right()) == crosswalk) {
+                currentDirection = currentDirection.right();
+            }
+
+            if (theNeighbors.get(currentDirection) == wall
+                     || theNeighbors.get(currentDirection) == grass) {
+                currentDirection = currentDirection.reverse();
+            }
+        } else {
+            currentDirection = getDirection();
+        }
+
+        return currentDirection;
     }
 
     @Override
     public int getDeathTime() {
-        return 0;
+        return CAR_DEATH_TIME;
     }
 
-    @Override
-    public void reset() {
 
-    }
+
+
 }

@@ -14,23 +14,6 @@ public final class Taxi extends AbstractVehicle {
      */
     private Direction myPreviousDirection;
 
-     /**
-     * Stores the starting x value of the Taxi at program start up.
-     */
-    private final int myDefaultX;
-
-    /**
-     * Stores the starting y value of the Human at Taxi start up.
-     */
-    private final int myDefaultY;
-
-    /**
-     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST) of the Human at Taxi
-     * start up
-     */
-    private final Direction myDefaultDirection;
-
-    /**
 
 
     /**
@@ -43,9 +26,6 @@ public final class Taxi extends AbstractVehicle {
     public Taxi(final int theX, final int theY, final Direction theDir) {
         super(theX, theY, theDir);
 
-        myDefaultX = theX;
-        myDefaultY = theY;
-        myDefaultDirection = theDir;
         myPreviousDirection = theDir;
 
     }
@@ -65,9 +45,4 @@ public final class Taxi extends AbstractVehicle {
         return 0;
     }
 
-
-    @Override
-    public void reset() {
-
-    }
 }

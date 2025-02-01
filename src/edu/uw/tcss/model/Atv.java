@@ -23,25 +23,6 @@ public final class Atv extends AbstractVehicle {
     private Direction myPreviousDirection;
 
     /**
-     * Stores the starting x value of the ATV at program start up.
-     */
-    private final int myDefaultX;
-
-    /**
-     * Stores the starting y value of the atv at program start up.
-     */
-    private final int myDefaultY;
-
-    /**
-     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST) of the ATV at program start up
-     */
-    private final Direction myDefaultDirection;
-
-
-
-
-
-    /**
      * Constructor for the Atv Class.
      *
      * @param theX the starting x coordinate of the ATV
@@ -52,26 +33,13 @@ public final class Atv extends AbstractVehicle {
     public Atv(final int theX, final int theY, final Direction theDir) {
         super(theX, theY, theDir);
 
-        myDefaultX = theX;
-        myDefaultY = theY;
-        myDefaultDirection = theDir;
         myPreviousDirection = theDir;
-    }
-
-    @Override
-    public void reset() {
-        this.setX(myDefaultX);
-        this.setY(myDefaultY);
-        this.setDirection(myDefaultDirection);
     }
 
     @Override
     public int getDeathTime() {
         return ATV_DEATH_TIME;
     }
-
-
-
 
     @Override
     public boolean canPass(final Terrain theTerrain, final Light theLight) {
@@ -107,9 +75,6 @@ public final class Atv extends AbstractVehicle {
 
         return direction;
     }
-
-
-
 
     /**
      *
