@@ -7,18 +7,44 @@ import java.util.Locale;
  * An abstract class that implements the vehicle interface.
  *
  * @author Kassie Whitney
- * @version 1.29.25
+ * @version 1.31.25
  */
 
 public abstract class AbstractVehicle implements Vehicle {
 
-    private  int myX;
-    private  int myY;
+    /**
+     * Stores the vehicle X value.
+     */
+    private int myX;
+
+    /**
+     * Stores the vehicle Y value.
+     */
+    private int myY;
+
+    /**
+     * Stores the vehicle direction.
+     */
     private Direction myDirection;
 
-    protected AbstractVehicle() {
+    /**
+     * Stores the Bicycle alive value. True if alive, false if not alive.
+     */
+    private boolean myIsAlive;
+
+    /**
+     * Gui Poke counter
+     */
+    private int myPokes;
+
+
+
+    protected AbstractVehicle(final int theX, final int theY, final Direction theDir) {
         super();
-        myDirection = Direction.SOUTH;
+        myX = theX;
+        myY = theY;
+        myDirection = theDir;
+        myIsAlive = true;
     }
 
     @Override
@@ -32,6 +58,36 @@ public abstract class AbstractVehicle implements Vehicle {
         }
 
         return fileName;
+    }
+
+    @Override
+    public boolean isAlive() {
+
+        return myIsAlive;
+    }
+
+    @Override
+    public void poke() {
+        ++myPokes;
+        if (myPokes >= getDeathTime()) {
+            myIsAlive = true;
+        }
+    }
+
+    @Override
+    public void collide(final Vehicle theOther) {
+
+        final int otherX = theOther.getX();
+        final int otherY = theOther.getY();
+
+        if (this.getX() == otherX
+                && this.getY() == otherY
+                && this.getDeathTime() > theOther.getDeathTime()
+                && theOther.isAlive()
+                && isAlive()) {
+            myPokes = 0;
+            myIsAlive = false;
+        }
     }
 
     @Override
@@ -49,16 +105,6 @@ public abstract class AbstractVehicle implements Vehicle {
         return myY;
     }
 
-    @Override
-    public boolean isAlive() {
-
-        return true;
-    }
-
-    @Override
-    public void poke() {
-
-    }
 
     @Override
     public void setDirection(final Direction theDir) {

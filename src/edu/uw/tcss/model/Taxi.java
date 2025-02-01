@@ -9,6 +9,29 @@ import java.util.Map;
  * @version 1.29.25
  */
 public final class Taxi extends AbstractVehicle {
+     /**
+     * Stores the previously called direction.
+     */
+    private Direction myPreviousDirection;
+
+     /**
+     * Stores the starting x value of the Taxi at program start up.
+     */
+    private final int myDefaultX;
+
+    /**
+     * Stores the starting y value of the Human at Taxi start up.
+     */
+    private final int myDefaultY;
+
+    /**
+     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST) of the Human at Taxi
+     * start up
+     */
+    private final Direction myDefaultDirection;
+
+    /**
+
 
     /**
      *
@@ -19,11 +42,12 @@ public final class Taxi extends AbstractVehicle {
      * @param theDir the starting direction
      */
     public Taxi(final int theX, final int theY, final Direction theDir) {
-        super();
+        super(theX, theY, theDir);
 
-        this.setX(theX);
-        this.setY(theY);
-        this.setDirection(theDir);
+        myDefaultX = theX;
+        myDefaultY = theY;
+        myDefaultDirection = theDir;
+        myPreviousDirection = theDir;
 
     }
 
@@ -38,14 +62,10 @@ public final class Taxi extends AbstractVehicle {
     }
 
     @Override
-    public void collide(final Vehicle theOther) {
-
-    }
-
-    @Override
     public int getDeathTime() {
         return 0;
     }
+
 
     @Override
     public void reset() {

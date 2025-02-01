@@ -12,11 +12,34 @@ import java.util.Random;
  */
 public final class Atv extends AbstractVehicle {
 
+    /**
+     * The death time for the ATV.
+     */
     private static final int ATV_DEATH_TIME = 25;
-    private Direction myPreviousDirection = getDirection();
+
+    /**
+     * Stores the previously called direction.
+     */
+    private Direction myPreviousDirection;
+
+    /**
+     * Stores the starting x value of the ATV at program start up.
+     */
     private final int myDefaultX;
+
+    /**
+     * Stores the starting y value of the atv at program start up.
+     */
     private final int myDefaultY;
+
+    /**
+     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST) of the ATV at program start up
+     */
     private final Direction myDefaultDirection;
+
+
+
+
 
     /**
      * Constructor for the Atv Class.
@@ -27,49 +50,40 @@ public final class Atv extends AbstractVehicle {
      *               (randomly generated from them direction Enum)
      */
     public Atv(final int theX, final int theY, final Direction theDir) {
-        super();
+        super(theX, theY, theDir);
 
-        this.setX(theX);
-        this.setY(theY);
-        this.setDirection(theDir);
         myDefaultX = theX;
         myDefaultY = theY;
         myDefaultDirection = theDir;
+        myPreviousDirection = theDir;
     }
 
     @Override
     public void reset() {
-
         this.setX(myDefaultX);
         this.setY(myDefaultY);
         this.setDirection(myDefaultDirection);
-
     }
 
     @Override
     public int getDeathTime() {
-
         return ATV_DEATH_TIME;
     }
 
 
+
+
     @Override
     public boolean canPass(final Terrain theTerrain, final Light theLight) {
-
         return !theTerrain.equals(Terrain.WALL);
     }
-
-    //Choose dirrection is the driver of the vehicle
-    // the map outputs all the directions with the terrain features at each dirrection
-    // the goal is to randomly choose a direction that isnt a wall, or the reverse of it's
-    // previous direction
 
     @Override
     public Direction chooseDirection(final Map<Direction, Terrain> theNeighbors) {
 
         final ArrayList<Direction> directionArrayList = new ArrayList<>();
 
-        //itterating through the direction enum
+        //itterating through direction enum
         for (final Direction dir : Direction.values()) {
             if (theNeighbors.get(dir) != Terrain.WALL) {
                 directionArrayList.add(dir);
@@ -81,8 +95,9 @@ public final class Atv extends AbstractVehicle {
                 randomIntGenerator(directionArrayList.size()));
 
         //Checks if the the next random direction is the reverse of the previous direction
-        //(prevents the Atv from reversing)
-        if (myPreviousDirection.reverse().equals(direction)) {
+        //(prevents the Atv from choosing a direction
+        // that would be the inverse of its previous direction.)
+        if (myPreviousDirection.reverse() == direction) {
             directionArrayList.remove(direction);
             direction = directionArrayList.get(randomIntGenerator(directionArrayList.size()));
         }
@@ -94,24 +109,20 @@ public final class Atv extends AbstractVehicle {
     }
 
 
-    @Override
-    public void collide(final Vehicle theOther) {
 
-
-    }
 
     /**
      *
-     * Random Integer generator starting from 0 to a specified integer passed in theTo
+     * Random Integer generator starting from 0 to a specified integer passed in theUpperBound
      * parameter.
      *
-     * @param theTo the highest number to generate a random integer from 0.
-     * @return a randomly generated int between 0 and theTo parameter
+     * @param theUpperBound the highest number to generate a random integer from 0.
+     * @return a randomly generated integer between 0 and theUpperBound parameter.
      */
-    private int randomIntGenerator(final int theTo) {
+    private int randomIntGenerator(final int theUpperBound) {
         final Random random = new Random();
 
-        return random.nextInt(theTo);
+        return random.nextInt(theUpperBound);
     }
 
 

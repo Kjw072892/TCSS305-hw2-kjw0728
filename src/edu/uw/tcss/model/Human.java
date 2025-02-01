@@ -10,6 +10,32 @@ import java.util.Map;
  */
 public final class Human extends AbstractVehicle {
 
+     /**
+     * Stores the previously called direction.
+     */
+    private Direction myPreviousDirection = getDirection();
+
+    /**
+     * Stores the starting x value of the Human at program start up.
+     */
+    private final int myDefaultX;
+
+    /**
+     * Stores the starting y value of the Human at program start up.
+     */
+    private final int myDefaultY;
+
+    /**
+     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST) of the Human at program
+     * start up
+     */
+    private final Direction myDefaultDirection;
+
+    /**
+     * Stores the vehicles alive value. True if alive, false if not alive.
+     */
+    private boolean myIsAlive;
+
     /**
      *
      * Constructor for Human class.
@@ -19,11 +45,13 @@ public final class Human extends AbstractVehicle {
      * @param theDir the starting direction coordinate
      */
     public Human(final int theX, final int theY, final Direction theDir) {
-        super();
+        super(theX, theY, theDir);
 
-        this.setX(theX);
-        this.setY(theY);
-        this.setDirection(theDir);
+        myDefaultX = theX;
+        myDefaultY = theY;
+        myDefaultDirection = theDir;
+        myPreviousDirection = theDir;
+
     }
 
     @Override
@@ -33,18 +61,14 @@ public final class Human extends AbstractVehicle {
 
     @Override
     public Direction chooseDirection(final Map<Direction, Terrain> theNeighbors) {
-        return Direction.WEST;
-    }
-
-    @Override
-    public void collide(final Vehicle theOther) {
-
+        return null;
     }
 
     @Override
     public int getDeathTime() {
         return 0;
     }
+
 
     @Override
     public void reset() {

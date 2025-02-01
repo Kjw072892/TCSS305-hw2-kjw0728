@@ -6,7 +6,6 @@ package edu.uw.tcss.io;
 import edu.uw.tcss.logic.PropertyChangeEnabledRoadRageControls;
 import edu.uw.tcss.logic.RoadRage;
 import edu.uw.tcss.model.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public final class FileLoader {
     private static final String CITY_FILE = 
                     "maps" 
                     + File.separator
-                    + "city_map1_atv1.txt";
+                    + "city_map1.txt";
     
     /**
      * A private constructor, to prevent external instantiation.
@@ -108,20 +107,20 @@ public final class FileLoader {
                                            Direction.valueOf(vehicleDirection)));
                     break;
 
-//                case 'B': // Bicycle
-//                    vehicles.add(new Bicycle(vehicleX, vehicleY,
-//                                               Direction.valueOf(vehicleDirection)));
-//                    break;
+                case 'B': // Bicycle
+                    vehicles.add(new Bicycle(vehicleX, vehicleY,
+                                               Direction.valueOf(vehicleDirection)));
+                    break;
 //
 //                case 'H': // Human
 //                    vehicles.add(new Human(vehicleX, vehicleY,
 //                                             Direction.valueOf(vehicleDirection)));
 //                    break;
 //
-//                case 'T': // Truck
-//                    vehicles.add(new Truck(vehicleX, vehicleY,
-//                                             Direction.valueOf(vehicleDirection)));
-//                    break;
+                case 'T': // Truck
+                    vehicles.add(new Truck(vehicleX, vehicleY,
+                                             Direction.valueOf(vehicleDirection)));
+                    break;
 //
 //                case 'X': // Taxi
 //                    vehicles.add(new Taxi(vehicleX, vehicleY,

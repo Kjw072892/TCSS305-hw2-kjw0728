@@ -11,6 +11,32 @@ import java.util.Map;
 public final class Car extends AbstractVehicle {
 
     /**
+     * The death time for the Car.
+     */
+    private static final int CAR_DEATH_TIME = 15;
+
+    /**
+     * Stores the previously called direction.
+     */
+    private Direction myPreviousDirection;
+
+    /**
+     * Stores the starting x value of the Car at program start up.
+     */
+    private final int myDefaultX;
+
+    /**
+     * Stores the starting y value of the Car at program start up.
+     */
+    private final int myDefaultY;
+
+    /**
+     * Stores the Starting direction (NORTH, EAST, SOUTH, WEST) of the Car at program start up
+     */
+    private final Direction myDefaultDirection;
+
+
+    /**
      *
      *Constructor for Car class.
      *
@@ -19,7 +45,11 @@ public final class Car extends AbstractVehicle {
      * @param theDir the starting direction coordinate
      */
     public Car(final int theX, final int theY, final Direction theDir) {
-        super();
+        super(theX, theY, theDir);
+        myDefaultX = theX;
+        myDefaultY = theY;
+        myDefaultDirection = theDir;
+        myPreviousDirection = theDir;
     }
 
     @Override
@@ -30,11 +60,6 @@ public final class Car extends AbstractVehicle {
     @Override
     public Direction chooseDirection(final Map<Direction, Terrain> theNeighbors) {
         return null;
-    }
-
-    @Override
-    public void collide(final Vehicle theOther) {
-
     }
 
     @Override
