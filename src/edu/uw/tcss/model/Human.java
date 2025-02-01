@@ -13,7 +13,7 @@ public final class Human extends AbstractVehicle {
      /**
      * Stores the previously called direction.
      */
-    private Direction myPreviousDirection = getDirection();
+    private Direction myPreviousDirection;
 
     /**
      * Stores the starting x value of the Human at program start up.

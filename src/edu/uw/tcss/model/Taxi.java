@@ -34,7 +34,6 @@ public final class Taxi extends AbstractVehicle {
 
 
     /**
-     *
      * Constructor for Taxi.
      *
      * @param theX the starting x coordinate
