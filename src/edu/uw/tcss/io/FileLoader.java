@@ -102,35 +102,35 @@ public final class FileLoader {
             final char vehicleDirection = theInput.next().charAt(0);
 
             switch (vehicleType) {
-                case 'A': //ATV
-                    vehicles.add(new Atv(vehicleX, vehicleY,
-                                           Direction.valueOf(vehicleDirection)));
-                    break;
-
-                case 'B': // Bicycle
-                    vehicles.add(new Bicycle(vehicleX, vehicleY,
-                                               Direction.valueOf(vehicleDirection)));
-                    break;
+//                case 'A': //ATV
+//                    vehicles.add(new Atv(vehicleX, vehicleY,
+//                                           Direction.valueOf(vehicleDirection)));
+//                    break;
+//
+//                case 'B': // Bicycle
+//                    vehicles.add(new Bicycle(vehicleX, vehicleY,
+//                                               Direction.valueOf(vehicleDirection)));
+//                    break;
 //
 //                case 'H': // Human
 //                    vehicles.add(new Human(vehicleX, vehicleY,
 //                                             Direction.valueOf(vehicleDirection)));
 //                    break;
 //
-                case 'T': // Truck
-                    vehicles.add(new Truck(vehicleX, vehicleY,
-                                             Direction.valueOf(vehicleDirection)));
-                    break;
-
-//                case 'X': // Taxi
-//                    vehicles.add(new Taxi(vehicleX, vehicleY,
-//                                            Direction.valueOf(vehicleDirection)));
+//                case 'T': // Truck
+//                    vehicles.add(new Truck(vehicleX, vehicleY,
+//                                             Direction.valueOf(vehicleDirection)));
 //                    break;
 
-                case 'C': // Car
-                    vehicles.add(new Car(vehicleX, vehicleY,
+                case 'X': // Taxi
+                    vehicles.add(new Taxi(vehicleX, vehicleY,
                                             Direction.valueOf(vehicleDirection)));
                     break;
+
+//                case 'C': // Car
+//                    vehicles.add(new Car(vehicleX, vehicleY,
+//                                            Direction.valueOf(vehicleDirection)));
+//                    break;
 
                 default:
                     // this should never happen
