@@ -111,22 +111,22 @@ public final class FileLoader {
 //                    vehicles.add(new Bicycle(vehicleX, vehicleY,
 //                                               Direction.valueOf(vehicleDirection)));
 //                    break;
-//
-//                case 'H': // Human
-//                    vehicles.add(new Human(vehicleX, vehicleY,
-//                                             Direction.valueOf(vehicleDirection)));
-//                    break;
+
+                case 'H': // Human
+                    vehicles.add(new Human(vehicleX, vehicleY,
+                                             Direction.valueOf(vehicleDirection)));
+                    break;
 //
 //                case 'T': // Truck
 //                    vehicles.add(new Truck(vehicleX, vehicleY,
 //                                             Direction.valueOf(vehicleDirection)));
 //                    break;
-
-                case 'X': // Taxi
-                    vehicles.add(new Taxi(vehicleX, vehicleY,
-                                            Direction.valueOf(vehicleDirection)));
-                    break;
-
+//
+//                case 'X': // Taxi
+//                    vehicles.add(new Taxi(vehicleX, vehicleY,
+//                                            Direction.valueOf(vehicleDirection)));
+//                    break;
+//
 //                case 'C': // Car
 //                    vehicles.add(new Car(vehicleX, vehicleY,
 //                                            Direction.valueOf(vehicleDirection)));

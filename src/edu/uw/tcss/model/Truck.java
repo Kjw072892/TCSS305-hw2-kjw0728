@@ -64,9 +64,10 @@ public class Truck extends AbstractVehicle {
 
         // Filters out areas where the truck can't go and adds directions to array list
         for (final Direction direction : Direction.values()) {
-            if (theNeighbors.get(direction) != wall
-                    && theNeighbors.get(direction) != trails
-                    && theNeighbors.get(direction) != grass) {
+            if (theNeighbors.get(direction) == Terrain.STREET
+                    && theNeighbors.get(direction) == Terrain.LIGHT
+                    && theNeighbors.get(direction) == Terrain.LIGHT) {
+
                 directionList.add(direction);
             }
         }

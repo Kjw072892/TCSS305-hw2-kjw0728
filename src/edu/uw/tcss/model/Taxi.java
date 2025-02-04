@@ -26,9 +26,6 @@ public class Taxi extends AbstractVehicle {
      */
     private int myClockCount;
 
-
-
-
     /**
      * Constructor for Taxi.
      *
@@ -46,7 +43,7 @@ public class Taxi extends AbstractVehicle {
         boolean canMove;
 
         if (theTerrain == Terrain.STREET) {
-            myClockCount = 0;
+            myClockCount = 0; //Resets the clock cycle counter
             canMove = true;
         } else if (theTerrain == Terrain.CROSSWALK && theLight == Light.GREEN) {
             canMove = true;
@@ -54,7 +51,7 @@ public class Taxi extends AbstractVehicle {
             canMove = theTerrain == Terrain.LIGHT
                     && theLight == Light.GREEN || theLight == Light.YELLOW;
         }
-
+        //Tracks the number cycles the taxi sees
         if (theTerrain == Terrain.CROSSWALK && theLight == Light.RED) {
             myClockCount++;
             canMove = myClockCount == MAX_CLOCK_COUNT;
@@ -75,19 +72,19 @@ public class Taxi extends AbstractVehicle {
         Direction currentDirection = getDirection();
 
         if (theNeighbors.get(getDirection()) != street) {
-
+            //Ensures the left turn is a priorty
             if (theNeighbors.get(currentDirection.left()) == street
                      || theNeighbors.get(currentDirection.left()) == light
                      || theNeighbors.get(currentDirection.left()) == crosswalk) {
                 currentDirection = currentDirection.left();
             }
-
+            //Turns right when left turns are not an option
             if (theNeighbors.get(currentDirection.right()) == street
                      || theNeighbors.get(currentDirection.right()) == light
                      || theNeighbors.get(currentDirection.right()) == crosswalk) {
                 currentDirection = currentDirection.right();
             }
-
+            //Turns around if left with no other option
             if (theNeighbors.get(currentDirection) == wall
                      || theNeighbors.get(currentDirection) == grass) {
                 currentDirection = currentDirection.reverse();

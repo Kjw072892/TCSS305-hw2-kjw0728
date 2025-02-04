@@ -1,25 +1,44 @@
 # TCSS305
 
-[Assignemnt Name]
+Assignment 2
 
-[Your Name]
+Kassie Whitney
 
-[Quarter] 202[Y]
+Winter 2025
 
 ## Assignment Overview
-[Describe your understanding of the purpose and scope of the assignment
-in 250 words or less. The word count is not strict, so don't worry about
-going slightly over. Do not just copy text from the assignment description.]
+We are given a GUI and an API sheet.
+Our goal is to create a Vehivle abstract class that implents the vehicle 
+interface, that will also be the parent of different vehcile classes.
+The GUI is already calling the appropriate classes and methods, and all we have to do is implement these methods 
+into our abstract and our vehicle classes to create the desired animation effect.
+Each vehicle class has their own unquie rules, we are to ensure that our vevhicles abides by theses rules.
+We will also create a test class for each vehicle to ensure that there these classes are written to standard.
 
 ## Technical Impression:
-[Describe what you have done to complete the assignment in 200-500 words.
-The word count is not strict, so don't worry about going slightly over;
-however, summaries that do not meet the minimum length requirement or
-are trivial in nature (representing little thought or effort) will not
-get full credit. You can share your personal experiences, things that
-particularly frustrated you about the assignment, things that particularly
-interested you about the assignment, etc. It is especially important that
-you document any difficulties you had with tools, Java libraries, etc.]
+This assignment was actually quite fun to do!
+It was challenging, rewarding, and it really gets you thinking about
+the inheritance paradigm.
+The biggest challenge was definitely figuring out exactly what each method does, how the GUI calls them, when it
+calls it, and how often it gets called.
+The first day was essentially spent trying to grasp what is happening with everything.
+There were most definitely a ton of informal tests performed.
+The API was comprehensive enough, but it required a lot of things to figure out yourself, such as how every method
+is called by the GUI, when it calls it, and how often it calls it.
+At first, the most challenging thing to do was to try to get the vehicle to move, then it was to try to keep the
+vehicle on screen, then it was trying to keep it off the walls and following their designated movements in
+accordance with the API sheet.
+The other thing that was also quite challenging was trying to figure out how to implement the use of fields within
+each vehicle class since not every vehicle class will need to store and utilize data.
+Needless to say, there were tons of editing and deleting of these fields.
+The ATV was by far the easiest, but a lot of time was spent figuring out which methods should go into abstract, which
+methods should stay in the concrete classes, but that was honestly the best part of the assignment.
+It really gets you thinking about inheritance and how it truly plays a critical role within object-oriented
+programming.
+Lastly, there is truly nothing more satisfying than watching the vehicles move exactly how they are supposed to move
+in accordance with the API sheet.
+The next step is to clean the code for better readability if possible.
+
 
 ## Unresolved problems in my submission:
 [Use this space to list problems which you know exist in your submission.
@@ -31,11 +50,8 @@ are listed here and a larger penalty for those which are not. Just say
 'none' if there are no issues that you are aware of.]
 
 ## Citations and Collaborations:
-[Use this space to cite sources of code used in completing this assignment.
-If you use code from Stack Overflow , GitHub, or an other source, link to
-the page here. If you worked with a fellow student or lab mentor, please
-state the student’s name and discuss the nature of your collaboration.]
+For this assingment java documents and stack overflow was used to learn more about enumerators, how they work, and 
+what their functions are.
 
 ## Questions:
-[Use this space to ask questions that you still have about the assignment,
-or just say 'none' if you have no questions at this time.]
+None
