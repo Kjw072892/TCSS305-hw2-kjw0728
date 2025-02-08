@@ -38,14 +38,19 @@ public class Truck extends AbstractVehicle {
 
         boolean canMove = false;
 
-        //Ensures that the Truck is only driving in designated areas
-        if (theTerrain == Terrain.STREET || theTerrain == Terrain.LIGHT) {
-            canMove = true;
+        if (theTerrain == Terrain.STREET
+                || theTerrain == Terrain.LIGHT
+                || theTerrain == Terrain.CROSSWALK) {
 
-        // Ensures that the truck stops only at red crosswalk lights
-        } else if (theTerrain == Terrain.CROSSWALK
-                && theLight == Light.GREEN || theLight ==  Light.YELLOW) {
-            canMove = true;
+            if (theTerrain == Terrain.STREET || theTerrain == Terrain.LIGHT) {
+                canMove = true;
+
+            }
+
+            if (theTerrain == Terrain.CROSSWALK && theLight != Light.RED) {
+
+                canMove = true;
+            }
         }
 
         return canMove;
@@ -65,8 +70,8 @@ public class Truck extends AbstractVehicle {
         // Filters out areas where the truck can't go and adds directions to array list
         for (final Direction direction : Direction.values()) {
             if (theNeighbors.get(direction) == Terrain.STREET
-                    && theNeighbors.get(direction) == Terrain.LIGHT
-                    && theNeighbors.get(direction) == Terrain.LIGHT) {
+                    || theNeighbors.get(direction) == Terrain.LIGHT
+                    || theNeighbors.get(direction) == Terrain.CROSSWALK) {
 
                 directionList.add(direction);
             }
@@ -74,8 +79,7 @@ public class Truck extends AbstractVehicle {
 
         // Stores a randomly generated direction
         Direction currentDirection =
-                directionList.get(randomIntGenerator(directionList.size()));
-
+               directionList.get(randomIntGenerator(directionList.size()));
 
         // Throws illegalArgumentEception if the directionList has less than 1 element.
         try {

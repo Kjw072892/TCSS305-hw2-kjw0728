@@ -64,6 +64,7 @@ public abstract class AbstractVehicle implements Vehicle {
 
     }
 
+
     @Override
     public String getImageFileName() {
 
