@@ -6,7 +6,6 @@ package edu.uw.tcss.io;
 import edu.uw.tcss.logic.PropertyChangeEnabledRoadRageControls;
 import edu.uw.tcss.logic.RoadRage;
 import edu.uw.tcss.model.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
