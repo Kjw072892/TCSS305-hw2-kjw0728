@@ -32,7 +32,7 @@ public final class FileLoader {
     private static final String CITY_FILE = 
                     "maps" 
                     + File.separator
-                    + "city_map1.txt";
+                    + "city_map2.txt";
     
     /**
      * A private constructor, to prevent external instantiation.

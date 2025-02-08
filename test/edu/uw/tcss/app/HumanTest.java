@@ -152,6 +152,7 @@ public class HumanTest {
         final Human human = new Human(0, 0, Direction.NORTH);
 
         for (int count = 0; count < TRIES_FOR_RANDOMNESS; count++) {
+
             final Direction d = human.chooseDirection(neighbors);
 
             seenNorth = seenNorth || d == Direction.NORTH;

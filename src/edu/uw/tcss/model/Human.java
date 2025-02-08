@@ -1,10 +1,7 @@
 package edu.uw.tcss.model;
 
 import java.awt.image.CropImageFilter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * A Human Class.
@@ -64,46 +61,39 @@ public class Human extends AbstractVehicle {
     @Override
     public Direction chooseDirection(final Map<Direction, Terrain> theNeighbors) {
 
-        Direction currentDirection = myPreviousDirection;
-        final List<Direction> directionList = new ArrayList<>();
+        final List<Direction> grassDirectionList = moveToList(theNeighbors);
+        final List<Direction> crossWalkDirectionList = new ArrayList<>();
+        Direction currentDirection = getDirection();
 
-        for (final Direction direction : Direction.values()) {
-            if (theNeighbors.get(direction) == Terrain.GRASS
-                    || theNeighbors.get(direction) == Terrain.CROSSWALK
-                    || theNeighbors.get(direction) == Terrain.TRAIL) {
-                directionList.add(direction);
-            }
-        }
-        //TODO: The human is reversing when near a crosswalk
-        //TODO: The human is not reversing when its the only choice
-        //TODO: The human reverse direction unncessarily
+        //checks if the getDirection() is not the reverse direction of the previous direction
+        if (currentDirection != myPreviousDirection.reverse()) {
+            for (final Direction direction : grassDirectionList) {
 
-        for (final Direction direction : directionList) {
-
-            if (theNeighbors.get(direction) == Terrain.CROSSWALK) {
-                currentDirection = direction;
-                break;
-            } else {
-                currentDirection = directionList.get(randomIntGenerator(directionList.size()));
+                //Adds the crosswalk direction to a list
+                if (theNeighbors.get(direction) == Terrain.CROSSWALK) {
+                    crossWalkDirectionList.add(direction);
+                    break;
+                }
             }
         }
 
-        try {
-            if (currentDirection.reverse() == myPreviousDirection
-                    && theNeighbors.get(currentDirection) != Terrain.CROSSWALK) {
-                currentDirection = directionList.get(randomIntGenerator(directionList.size()));
-            }
+        //Sets the return variable to a random element from grassDirectionList
+        if (crossWalkDirectionList.isEmpty()) {
 
-        } catch (final IllegalArgumentException illegalArgumentException) {
-            currentDirection = currentDirection.reverse();
+            currentDirection =
+                    grassDirectionList.get(randomIntGenerator(grassDirectionList.size()));
+
+        } else {
+
+            //Sets the return variable to the crosswalk direction
+            currentDirection = crossWalkDirectionList.getFirst();
+            grassDirectionList.clear();
         }
-
-
         myPreviousDirection = currentDirection;
-
-
         return currentDirection;
     }
+
+
 
     @Override
     public int getDeathTime() {
@@ -122,6 +112,50 @@ public class Human extends AbstractVehicle {
         final Random random = new Random();
 
         return random.nextInt(theUpperBound);
+    }
+
+    /**
+     *
+     * Stores the direction map into a list (helper Method).
+     * Used to save space in the ChooseDirection method.
+     *
+     * @param theNeighbors a map of the direction with values of terrain.
+     * @return a list of the filtered directions.
+     */
+    private List<Direction> moveToList(final Map<Direction, Terrain> theNeighbors) {
+        final List<Direction> directionList = new ArrayList<>();
+        for (final Direction direction : Direction.values()) {
+            if (theNeighbors.get(direction) == Terrain.GRASS
+                    || theNeighbors.get(direction) == Terrain.CROSSWALK) {
+                directionList.add(direction);
+            }
+        }
+
+        if (directionList.size() > 1) {
+            directionList.remove(getDirection().reverse());
+        }
+
+        return  directionList;
+    }
+
+    /**
+     *
+     * Iterates through the map and stores the seen Terrain into a list.
+     * (Helper method for chooseDirection).
+     *
+     * @param theNeighbors a map with (Direction: terrain) key-value pair.
+     * @return a list of seen terrain.
+     */
+    private List<Terrain> terrainList(final Map<Direction, Terrain> theNeighbors) {
+        final List<Terrain> terrainList = new ArrayList<>();
+        for (final Direction direction : Direction.values()) {
+            if (theNeighbors.get(direction) == Terrain.GRASS
+                    || theNeighbors.get(direction) == Terrain.CROSSWALK) {
+                terrainList.add(theNeighbors.get(direction));
+            }
+        }
+
+        return  terrainList;
     }
 
 

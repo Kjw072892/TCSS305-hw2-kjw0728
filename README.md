@@ -35,10 +35,20 @@ The ATV was by far the easiest, but a lot of time was spent figuring out which m
 methods should stay in the concrete classes, but that was honestly the best part of the assignment.
 It really gets you thinking about inheritance and how it truly plays a critical role within object-oriented
 programming.
-Lastly, there is truly nothing more satisfying than watching the vehicles move exactly how they are supposed to move
-in accordance with the API sheet.
-The next step is to clean the code for better readability if possible.
-
+For whatever reason, perhaps its due to having to pass the Junit test, the Human class was most definetly a 
+brain-buster.
+It was challenging becuase we had to set it up so that the method returns a random direction everytime, except for the 
+times its near a crosswalk and the crosswalk direction wont cause the human to move backwards.
+The task definetly seemed really simple at first, until a number of bugs started popping up everywhere and the human 
+sprite wasn't doing anything of what it was suppose to do. 
+We had to also make sure it passed the junit test that was given to us.
+That was probably the most challenging part because the test also measures the randomness of the human object, and 
+because its not practical to code the 10,000 lines needed to test every possible outcome, occasional failures are to 
+be expected.
+So with this in mind, it was difficult to discern whether the testing algorithm is just flawed or if the code is 
+flawed.
+All in all this assignment was challenging, but rewarding.
+  
 
 ## Unresolved problems in my submission:
 [Use this space to list problems which you know exist in your submission.
@@ -52,6 +62,7 @@ are listed here and a larger penalty for those which are not. Just say
 ## Citations and Collaborations:
 For this assingment java documents and stack overflow was used to learn more about enumerators, how they work, and 
 what their functions are.
+Some AI was used to quickly find information and sources that talks about Java's Inheritence hierarchy.
 
 ## Questions:
 None
