@@ -1,8 +1,6 @@
 package edu.uw.tcss.model;
 
 import java.util.Locale;
-import java.util.Objects;
-
 
 /**
  * An abstract class that implements the vehicle interface.
