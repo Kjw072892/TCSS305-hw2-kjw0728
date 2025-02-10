@@ -288,7 +288,7 @@ public class AtvTest {
     }
 
     /**
-     * Testing if the ATV reverses at anytime with more than 1 valid direction.
+     * Testing if the ATV reverses at anytime with more than one valid direction.
      */
     @Test
     public void testChooseDirectionAndNotReverse() {
@@ -343,7 +343,7 @@ public class AtvTest {
     }
 
      /**
-     * Testing for only 1 valid direction besides reverse.
+     * Testing for only one valid direction besides reverse.
      */
     @Test
     public void testChooseOnlyValidDirection() {

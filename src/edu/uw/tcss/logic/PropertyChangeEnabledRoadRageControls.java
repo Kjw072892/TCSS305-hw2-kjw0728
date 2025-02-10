@@ -89,7 +89,7 @@ public interface PropertyChangeEnabledRoadRageControls extends RoadRageControls 
      * once to the same event source for the specified property, it will be notified one less 
      * time after being removed. If propertyName is null, no exception is thrown and no action 
      * is taken. If listener is null, or was never added for the specified property, no 
-     * exception is thrown and no action is taken.
+     * exception is thrown and no action has taken.
      * 
      * @param thePropertyName The name of the property that was listened on.
      * @param theListener The PropertyChangeListener to be removed

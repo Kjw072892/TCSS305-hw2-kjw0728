@@ -1,5 +1,11 @@
 package edu.uw.tcss.model;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,7 +13,7 @@ import java.util.Map;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 
 /**
@@ -269,7 +275,7 @@ public class TruckTest {
     }
 
     /**
-     * Testing if the Truck reverses at anytime with more than 1 valid direction.
+     * Testing if the Truck reverses at anytime with more than one valid direction.
      */
     @Test
     public void testChooseDirectionAndNotReverse() {
@@ -325,7 +331,7 @@ public class TruckTest {
     }
 
      /**
-     * Testing for only 1 valid direction besides reverse.
+     * Testing for only one valid direction besides reverse.
      */
     @Test
     public void testChooseOnlyValidDirection() {

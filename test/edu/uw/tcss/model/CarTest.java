@@ -1,14 +1,19 @@
 package edu.uw.tcss.model;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * Unit test for Car class.
@@ -277,7 +282,7 @@ public class CarTest {
     }
 
     /**
-     * Testing if the Car reverses at anytime with more than 1 valid direction.
+     * Testing if the Car reverses at anytime with more than one valid direction.
      */
     @Test
     public void testChooseDirectionAndNotReverse() {

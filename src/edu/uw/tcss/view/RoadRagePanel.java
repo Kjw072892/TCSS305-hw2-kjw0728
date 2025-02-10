@@ -85,7 +85,7 @@ public final class RoadRagePanel extends JPanel implements
     private static final int DEBUG_OFFSET = 10;
     
     /**
-     * The size in pixels of a side of one "square" on the grid.
+     * The size in pixels of a side on one "square" on the grid.
      */
     private static final int SQUARE_SIZE = 40;
     
@@ -98,7 +98,7 @@ public final class RoadRagePanel extends JPanel implements
     private Terrain[][] myGrid;
     
     /**
-     * A flag indicating whether or not we are running in debug mode.
+     * A flag indicating whether we are running in debug mode.
      */
     private boolean myDebugFlag;
 
@@ -121,8 +121,8 @@ public final class RoadRagePanel extends JPanel implements
 
     /**
      * Construct a new Panel.
-     * @param theWidth width of the 2D grid of Terrain that defines the map
-     * @param theHeight height of the 2D grid of Terrain that defines the map
+     * @param theWidth width of the 2D grid on Terrain that defines the map
+     * @param theHeight height of the 2D grid on Terrain that defines the map
      */
     public RoadRagePanel(final int theWidth, final int theHeight) {
         super();

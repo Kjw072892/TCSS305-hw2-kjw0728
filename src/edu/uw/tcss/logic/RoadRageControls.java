@@ -29,13 +29,13 @@ public interface RoadRageControls {
     void reset();
     
     /**
-     * Access the height of the 2D grid of Terrain that forms the map. 
+     * Access the height of the 2D grid on Terrain that forms the map.
      * @return the height of the 2D grid
      */
     int getHeight();
     
     /**
-     * Access the width of the 2D grid of Terrain that forms the map. 
+     * Access the width of the 2D grid on Terrain that forms the map.
      * @return the width of the 2D grid
      */
     int getWidth();
