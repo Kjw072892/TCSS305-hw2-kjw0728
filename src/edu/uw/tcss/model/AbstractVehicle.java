@@ -148,12 +148,11 @@ public abstract class AbstractVehicle implements Vehicle {
         setY(myDefaultY);
         setDirection(myDefaultDirection);
         myIsAlive = true;
-
     }
 
     @Override
     public String toString() {
-        return String.format("[Vehicle: %s, \nLocation: (%d, %d)]",
+        return String.format("[Vehicle: %s, Location: (%d, %d)]",
                 this.getClass().getSimpleName().toUpperCase(Locale.ROOT), getX(), getY());
     }
 

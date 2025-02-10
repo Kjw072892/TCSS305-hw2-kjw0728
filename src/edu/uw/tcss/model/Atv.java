@@ -60,16 +60,17 @@ public class Atv extends AbstractVehicle {
         }
 
         //Retrieves a random direction from the available direction within the list
-        Direction direction = directionArrayList.get(
-                randomIntGenerator(directionArrayList.size()));
+        Direction direction = getDirection();
+
 
         //Checks if the the next random direction is the reverse of the previous direction
         //(prevents the Atv from choosing a direction
         // that would be the inverse of its previous direction.)
-        if (myPreviousDirection.reverse() == direction) {
-            directionArrayList.remove(direction);
-            direction = directionArrayList.get(randomIntGenerator(directionArrayList.size()));
+
+        if (directionArrayList.size() > 1) {
+            directionArrayList.remove(myPreviousDirection.reverse());
         }
+        direction = directionArrayList.get(randomIntGenerator(directionArrayList.size()));
 
         //Stores the current direction into a previous direction field for future reference
         myPreviousDirection = direction;
