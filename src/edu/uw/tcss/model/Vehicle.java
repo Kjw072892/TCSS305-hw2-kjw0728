@@ -17,12 +17,12 @@ import java.util.Map;
 public interface Vehicle {
 
     /**
-     * Returns whether or not this object may move onto the given type of
+     * Returns whether-or-not this object may move onto the given type of
      * terrain, when the street lights are the given color.
      * 
      * @param theTerrain The terrain.
      * @param theLight The light color.
-     * @return whether or not this object may move onto the given type of
+     * @return Whether-or-not this object may move onto the given type of
      *         terrain when the street lights are the given color.
      */
     boolean canPass(Terrain theTerrain, Light theLight);
@@ -88,8 +88,8 @@ public interface Vehicle {
     boolean isAlive();
 
     /**
-     * Called by the UI to notify a dead vehicle that 1 movement round has
-     * passed, so that it will become 1 move closer to revival.
+     * Called by the UI to notify a dead vehicle that one movement round has
+     * passed, so that it will become one move closer to revival.
      */
     void poke();
 

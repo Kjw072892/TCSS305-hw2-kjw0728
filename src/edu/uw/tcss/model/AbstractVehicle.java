@@ -1,8 +1,6 @@
 package edu.uw.tcss.model;
 
 import java.util.Locale;
-import java.util.Objects;
-
 
 /**
  * An abstract class that implements the vehicle interface.
@@ -65,6 +63,7 @@ public abstract class AbstractVehicle implements Vehicle {
         myIsAlive = true;
 
     }
+
 
     @Override
     public String getImageFileName() {
@@ -149,12 +148,11 @@ public abstract class AbstractVehicle implements Vehicle {
         setY(myDefaultY);
         setDirection(myDefaultDirection);
         myIsAlive = true;
-
     }
 
     @Override
     public String toString() {
-        return String.format("[Vehicle: %s, \nLocation: (%d, %d)]",
+        return String.format("[Vehicle: %s, Location: (%d, %d)]",
                 this.getClass().getSimpleName().toUpperCase(Locale.ROOT), getX(), getY());
     }
 

@@ -2,17 +2,13 @@
  * TCSS 305 - Road Rage
  */
 
-package edu.uw.tcss.app;
+package edu.uw.tcss.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import edu.uw.tcss.model.Direction;
-import edu.uw.tcss.model.Human;
-import edu.uw.tcss.model.Light;
-import edu.uw.tcss.model.Terrain;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -152,6 +148,7 @@ public class HumanTest {
         final Human human = new Human(0, 0, Direction.NORTH);
 
         for (int count = 0; count < TRIES_FOR_RANDOMNESS; count++) {
+
             final Direction d = human.chooseDirection(neighbors);
 
             seenNorth = seenNorth || d == Direction.NORTH;

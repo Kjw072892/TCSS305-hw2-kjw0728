@@ -32,7 +32,7 @@ public final class FileLoader {
     private static final String CITY_FILE = 
                     "maps" 
                     + File.separator
-                    + "city_map1txt";
+                    + "city_map1.txt";
     
     /**
      * A private constructor, to prevent external instantiation.
@@ -111,21 +111,21 @@ public final class FileLoader {
                     vehicles.add(new Bicycle(vehicleX, vehicleY,
                                                Direction.valueOf(vehicleDirection)));
                     break;
-//
-//                case 'H': // Human
-//                    vehicles.add(new Human(vehicleX, vehicleY,
-//                                             Direction.valueOf(vehicleDirection)));
-//                    break;
-//
+
+                case 'H': // Human
+                    vehicles.add(new Human(vehicleX, vehicleY,
+                                             Direction.valueOf(vehicleDirection)));
+                    break;
+
                 case 'T': // Truck
                     vehicles.add(new Truck(vehicleX, vehicleY,
                                              Direction.valueOf(vehicleDirection)));
                     break;
 
-//                case 'X': // Taxi
-//                    vehicles.add(new Taxi(vehicleX, vehicleY,
-//                                            Direction.valueOf(vehicleDirection)));
-//                    break;
+                case 'X': // Taxi
+                    vehicles.add(new Taxi(vehicleX, vehicleY,
+                                            Direction.valueOf(vehicleDirection)));
+                    break;
 
                 case 'C': // Car
                     vehicles.add(new Car(vehicleX, vehicleY,

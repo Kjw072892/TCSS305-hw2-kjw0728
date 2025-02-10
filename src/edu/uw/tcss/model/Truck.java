@@ -38,14 +38,19 @@ public class Truck extends AbstractVehicle {
 
         boolean canMove = false;
 
-        //Ensures that the Truck is only driving in designated areas
-        if (theTerrain == Terrain.STREET || theTerrain == Terrain.LIGHT) {
-            canMove = true;
+        if (theTerrain == Terrain.STREET
+                || theTerrain == Terrain.LIGHT
+                || theTerrain == Terrain.CROSSWALK) {
 
-        // Ensures that the truck stops only at red crosswalk lights
-        } else if (theTerrain == Terrain.CROSSWALK
-                && theLight == Light.GREEN || theLight ==  Light.YELLOW) {
-            canMove = true;
+            if (theTerrain == Terrain.STREET || theTerrain == Terrain.LIGHT) {
+                canMove = true;
+
+            }
+
+            if (theTerrain == Terrain.CROSSWALK && theLight != Light.RED) {
+
+                canMove = true;
+            }
         }
 
         return canMove;
@@ -64,30 +69,23 @@ public class Truck extends AbstractVehicle {
 
         // Filters out areas where the truck can't go and adds directions to array list
         for (final Direction direction : Direction.values()) {
-            if (theNeighbors.get(direction) != wall
-                    && theNeighbors.get(direction) != trails
-                    && theNeighbors.get(direction) != grass) {
+            if (theNeighbors.get(direction) == street
+                    || theNeighbors.get(direction) == lights
+                    || theNeighbors.get(direction) == crosswalks) {
+
                 directionList.add(direction);
             }
         }
 
-        // Stores a randomly generated direction
-        Direction currentDirection =
-                directionList.get(randomIntGenerator(directionList.size()));
-
-
-        // Throws illegalArgumentEception if the directionList has less than 1 element.
-        try {
-            if (myPreviousDirection.reverse() == currentDirection
-                && directionList.size() > 1) {
-
-                directionList.remove(currentDirection);
-                currentDirection = directionList.get(randomIntGenerator(directionList.size()));
-            }
-
-        } catch (final IllegalArgumentException illegalArgumentException) {
-            throw new IllegalArgumentException("Uh-OH, Looks Like An Error Occured!");
+        // Removes the direction opposite to its previous direction.
+        // Ensures the truck does not go backwards if other options are avialable.
+        if (directionList.size() > 1) {
+            directionList.remove(myPreviousDirection.reverse());
         }
+
+        //Randomly chooses a valid direction from the list
+        final Direction currentDirection =
+                directionList.get(randomIntGenerator(directionList.size()));
 
         // Stores the current direction in a the field to reference when the method is called
         myPreviousDirection = currentDirection;

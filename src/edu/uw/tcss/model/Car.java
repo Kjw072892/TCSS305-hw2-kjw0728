@@ -32,19 +32,20 @@ public class Car extends AbstractVehicle {
     @Override
     public boolean canPass(final Terrain theTerrain, final Light theLight) {
 
-        final boolean canMove;
+        boolean canMove = false;
 
-        if (theTerrain == Terrain.STREET) {
+        if (isValid(theTerrain) && theTerrain == Terrain.LIGHT) {
+            if (theLight == Light.GREEN || theLight == Light.YELLOW) {
+                canMove = true;
+            }
+        } else if (isValid(theTerrain) && theTerrain == Terrain.CROSSWALK) {
+            if (theLight == Light.GREEN) {
+                canMove = true;
+            }
+        } else if (isValid(theTerrain) && theTerrain == Terrain.STREET) {
             canMove = true;
-        } else if (theTerrain == Terrain.CROSSWALK
-                && theLight == Light.YELLOW || theLight == Light.RED) {
-            canMove = false;
-        } else if (theTerrain == Terrain.CROSSWALK && theLight == Light.GREEN) {
-            canMove = true;
-        } else {
-            canMove = theTerrain == Terrain.LIGHT
-                    && theLight == Light.GREEN || theLight == Light.YELLOW;
         }
+
         return canMove;
     }
 
@@ -87,5 +88,21 @@ public class Car extends AbstractVehicle {
     @Override
     public int getDeathTime() {
         return CAR_DEATH_TIME;
+    }
+
+    /**
+     * Helper method for canPass.
+     *
+     * @param theTerrain the current terrain the vehicle sees.
+     * @return boolean value true, if the car can pass the terrain, false otherwise.
+     */
+    private boolean isValid(final Terrain theTerrain) {
+        final boolean canMove;
+        switch (theTerrain) {
+            case STREET, LIGHT, CROSSWALK -> canMove = true;
+            default -> canMove = false;
+        }
+
+        return canMove;
     }
 }
